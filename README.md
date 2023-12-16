@@ -21,8 +21,8 @@ This set of functions for WordPress allows you to seamlessly replace staging URL
     *
     * @return string The modified attachment URL.
     */
-   add_filter('wp_get_attachment_url', 'xtnd_staging_wp_get_attachment_url', 1000000, 2);
-   function xtnd_staging_wp_get_attachment_url($url, $attachment)
+   add_filter('wp_get_attachment_url', 'xplodman_staging_wp_get_attachment_url', 1000000, 2);
+   function xplodman_staging_wp_get_attachment_url($url, $attachment)
    {
        // Check if the URL contains the localhost URL
        if (strpos($url, LOCALHOST_URL) !== false) {
@@ -39,8 +39,8 @@ This set of functions for WordPress allows you to seamlessly replace staging URL
     *
     * @return array The modified attachment image attributes.
     */
-   add_filter('wp_get_attachment_image_attributes', 'xtnd_staging_wp_get_attachment_image_attributes');
-   function xtnd_staging_wp_get_attachment_image_attributes($attributes)
+   add_filter('wp_get_attachment_image_attributes', 'xplodman_staging_wp_get_attachment_image_attributes');
+   function xplodman_staging_wp_get_attachment_image_attributes($attributes)
    {
        // Check and replace 'src' attribute if it contains localhost URL
        if (isset($attributes['src']) && strpos($attributes['src'], LOCALHOST_URL) !== false) {
